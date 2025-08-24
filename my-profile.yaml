@@ -1,0 +1,13 @@
+type: os.nova.server
+version: 1.0
+properties:
+  name: senlin-vm
+  flavor: m1.medium
+  image: "WEB_IP"
+  key_name: senlin_keypair
+  networks:
+   - network: pinaka-int-nw0
+     security_groups:
+       - default
+  metadata:
+    test_key: test_value

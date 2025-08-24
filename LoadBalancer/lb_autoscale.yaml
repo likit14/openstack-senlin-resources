@@ -1,0 +1,49 @@
+heat_template_version: 2018-08-31
+
+parameters:
+  cluster_id:
+    type: string
+    description: Existing Senlin cluster ID
+  vip_subnet:
+    type: string
+    description: Subnet for Load Balancer
+  pool_subnet:
+    type: string
+    description: Subnet for LB pool
+
+resources:
+  lb_policy:
+    type: OS::Senlin::Policy
+    properties:
+      type: senlin.policy.loadbalance-1.0
+      bindings:
+        - cluster: { get_param: cluster_id }
+      properties:
+        pool:
+          protocol: HTTP
+          protocol_port: 80
+          subnet: { get_param: pool_subnet }
+          lb_method: ROUND_ROBIN
+        vip:
+          subnet: { get_param: vip_subnet }
+          protocol: HTTP
+          protocol_port: 80
+        health_monitor:
+          type: HTTP
+          delay: 10
+          timeout: 5
+          max_retries: 4
+
+  receiver_scale_out:
+    type: OS::Senlin::Receiver
+    properties:
+      cluster: { get_param: cluster_id }
+      action: CLUSTER_SCALE_OUT
+      type: webhook
+
+  receiver_scale_in:
+    type: OS::Senlin::Receiver
+    properties:
+      cluster: { get_param: cluster_id }
+      action: CLUSTER_SCALE_IN
+      type: webhook
