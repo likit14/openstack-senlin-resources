@@ -1,21 +1,21 @@
-# OpenStack Senlin Resources
+# OpenStack Senlin PowerShell Resources
 
-This repository contains a curated set of **scripts, YAML templates, and policy files** for managing clusters using [OpenStack Senlin](https://docs.openstack.org/senlin/latest/).
+This repository provides a set of **PowerShell scripts**, **YAML templates**, and **policy files** for managing and automating clusters in [OpenStack Senlin](https://docs.openstack.org/senlin/latest/).
 
 ## 📌 Contents
-- **Scripts** – Utilities to automate Senlin cluster and node operations.  
-- **YAML Templates** – Predefined Senlin cluster and profile templates for quick deployment.  
-- **Policies** – Custom Senlin policy definitions for scaling, load-balancing, and health management.  
+- **PowerShell Scripts** – Utilities to automate cluster creation, scaling, and policy management via CLI.  
+- **YAML Templates** – Predefined cluster and profile templates for quick deployment.  
+- **Policies** – Example Senlin policy definitions (scaling, placement, health, etc.).  
 
 ## 🚀 Features
-- Automates cluster creation and lifecycle management.  
-- Provides ready-to-use YAML templates for common OpenStack workloads.  
-- Includes policy examples to enforce scaling, placement, and health-check strategies.  
-- Helps operators and developers bootstrap Senlin usage quickly.  
+- Automates Senlin cluster lifecycle using **PowerShell**.  
+- Provides reusable YAML templates for profiles and clusters.  
+- Includes ready-to-use policy definitions for scaling, load-balancing, and health checks.  
+- Speeds up OpenStack Senlin adoption for operators and developers.  
 
 ## 🛠 Usage
-Clone the repo and adapt templates/policies to your environment:  
+Clone the repository and adapt scripts/templates to your environment:  
 
-```bash
-git clone https://github.com/<your-username>/openstack-senlin-resources.git
-cd openstack-senlin-resources
+```powershell
+git clone https://github.com/<your-username>/openstack-senlin-powershell.git
+cd openstack-senlin-powershell
